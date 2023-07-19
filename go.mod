@@ -73,3 +73,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	modernc.org/sqlite v1.10.1-0.20210314190707-798bbeb9bb84
 )
+
+replace github.com/casdoor/go-sms-sender => github.com/ariontechs/go-sms-sender v0.0.1

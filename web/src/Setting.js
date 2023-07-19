@@ -112,6 +112,10 @@ export const OtherProviderInfo = {
       logo: `${StaticBaseUrl}/img/social_default.png`,
       url: "",
     },
+    "Infobip SMS": {
+      logo: `${StaticBaseUrl}/img/social_default.png`,
+      url: "https://www.infobip.com",
+    },
   },
   Email: {
     "Default": {
@@ -853,6 +857,7 @@ export function getProviderTypeOptions(category) {
         {id: "Twilio SMS", name: "Twilio SMS"},
         {id: "SmsBao SMS", name: "SmsBao SMS"},
         {id: "SUBMAIL SMS", name: "SUBMAIL SMS"},
+        {id: "Infobip SMS", name: "Infobip SMS"},
       ]
     );
   } else if (category === "Storage") {
