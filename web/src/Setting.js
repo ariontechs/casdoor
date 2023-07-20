@@ -31,7 +31,7 @@ const {Option} = Select;
 export const ServerUrl = "";
 
 // export const StaticBaseUrl = "https://cdn.jsdelivr.net/gh/casbin/static";
-export const StaticBaseUrl = "https://cdn.casbin.org";
+export const StaticBaseUrl = "https://storage.googleapis.com/vc3_member/static";
 
 export const Countries = [{label: "English", key: "en", country: "US", alt: "English"},
   {label: "Español", key: "es", country: "ES", alt: "Español"},
@@ -113,7 +113,7 @@ export const OtherProviderInfo = {
       url: "",
     },
     "Infobip SMS": {
-      logo: `${StaticBaseUrl}/img/social_default.png`,
+      logo: `${StaticBaseUrl}/img/social_infobip.png`,
       url: "https://www.infobip.com",
     },
   },
