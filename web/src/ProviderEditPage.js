@@ -103,6 +103,12 @@ class ProviderEditPage extends React.Component {
     });
   }
 
+  removeFistZeroOfPhoneNumber(countryCode, phone) {
+    const updatedPhone = (phone.startsWith("0")) ? phone.substring(1) : phone;
+    ProviderEditTestSms.sendTestSms(this.state.provider, "+" + countryCode + updatedPhone);
+    console.log("Test");
+  }
+
   renderUserMappingInput() {
     return (
       <React.Fragment>
@@ -797,7 +803,7 @@ class ProviderEditPage extends React.Component {
                 <Col span={2} >
                   <Button style={{marginLeft: "10px", marginBottom: "5px"}} type="primary"
                     disabled={!Setting.isValidPhone(this.state.provider.receiver)}
-                    onClick={() => ProviderEditTestSms.sendTestSms(this.state.provider, "+" + Setting.getCountryCode(this.state.provider.content) + this.state.provider.receiver)} >
+                    onClick={() => this.removeFistZeroOfPhoneNumber(Setting.getCountryCode(this.state.provider.content), this.state.provider.receiver)} >
                     {i18next.t("provider:Send Testing SMS")}
                   </Button>
                 </Col>
