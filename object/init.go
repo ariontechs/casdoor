@@ -99,7 +99,7 @@ func initBuiltInOrganization() bool {
 		WebsiteUrl:         "https://example.com",
 		Favicon:            fmt.Sprintf("%s/img/casbin/favicon.ico", conf.GetConfigString("staticBaseUrl")),
 		PasswordType:       "plain",
-		PasswordOptions:    []string{"AtLeast6"},
+		PasswordOptions:    []string{},
 		CountryCodes:       []string{"US", "ES", "FR", "DE", "GB", "CN", "JP", "KR", "VN", "ID", "SG", "IN"},
 		DefaultAvatar:      fmt.Sprintf("%s/img/casbin.svg", conf.GetConfigString("staticBaseUrl")),
 		Tags:               []string{},

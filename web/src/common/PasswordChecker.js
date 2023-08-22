@@ -57,9 +57,9 @@ export function checkPasswordComplexity(password, options) {
     return i18next.t("login:Please input your password!");
   }
 
-  if (!options || options.length === 0) {
-    options = ["AtLeast6"];
-  }
+  // if (!options || options.length === 0) {
+  //   options = ["AtLeast6"];
+  // }
 
   const checkers = {
     AtLeast6: isValidOption_AtLeast6,

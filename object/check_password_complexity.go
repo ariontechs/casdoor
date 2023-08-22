@@ -73,9 +73,9 @@ func checkPasswordComplexity(password string, options []string) string {
 		return "Please input your password!"
 	}
 
-	if len(options) == 0 {
-		options = []string{"AtLeast6"}
-	}
+	// if len(options) == 0 {
+	// 	options = []string{"AtLeast6"}
+	// }
 
 	checkers := map[string]ValidatorFunc{
 		"AtLeast6":    isValidOption_AtLeast6,
