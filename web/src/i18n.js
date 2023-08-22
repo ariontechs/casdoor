@@ -15,6 +15,7 @@
 import i18n from "i18next";
 import en from "./locales/en/data.json";
 import zh from "./locales/zh/data.json";
+import tw from "./locales/tw/data.json";
 import es from "./locales/es/data.json";
 import fr from "./locales/fr/data.json";
 import de from "./locales/de/data.json";
@@ -51,6 +52,7 @@ const resources = {
   ar: ar,
   he: he,
   fi: fi,
+  tw: tw,
 };
 
 function initLanguage() {
@@ -117,6 +119,9 @@ function initLanguage() {
         break;
       case "fi":
         language = "fi";
+        break;
+      case "tw":
+        language = "tw";
         break;
       default:
         language = Conf.DefaultLanguage;

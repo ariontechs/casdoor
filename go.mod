@@ -67,3 +67,5 @@ require (
 	gopkg.in/square/go-jose.v2 v2.6.0
 	modernc.org/sqlite v1.18.2
 )
+
+replace github.com/casdoor/go-sms-sender => github.com/ariontechs/go-sms-sender v0.0.1

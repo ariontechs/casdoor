@@ -36,7 +36,8 @@ export const Countries = [{label: "English", key: "en", country: "US", alt: "Eng
   {label: "Español", key: "es", country: "ES", alt: "Español"},
   {label: "Français", key: "fr", country: "FR", alt: "Français"},
   {label: "Deutsch", key: "de", country: "DE", alt: "Deutsch"},
-  {label: "中文", key: "zh", country: "CN", alt: "中文"},
+  {label: "简中", key: "zh", country: "CN", alt: "简中"},
+  {label: "繁中", key: "tw", country: "TW", alt: "繁中"},
   {label: "Indonesia", key: "id", country: "ID", alt: "Indonesia"},
   {label: "日本語", key: "ja", country: "JP", alt: "日本語"},
   {label: "한국어", key: "ko", country: "KR", alt: "한국어"},
@@ -96,10 +97,6 @@ export const OtherProviderInfo = {
       logo: `${StaticBaseUrl}/img/social_azure.png`,
       url: "https://azure.microsoft.com/en-us/products/communication-services",
     },
-    "Infobip SMS": {
-      logo: `${StaticBaseUrl}/img/social_infobip.png`,
-      url: "https://portal.infobip.com/homepage/",
-    },
     "Tencent Cloud SMS": {
       logo: `${StaticBaseUrl}/img/social_tencent_cloud.jpg`,
       url: "https://cloud.tencent.com/product/sms",
@@ -139,6 +136,10 @@ export const OtherProviderInfo = {
     "Mock SMS": {
       logo: `${StaticBaseUrl}/img/social_default.png`,
       url: "",
+    },
+    "Infobip SMS": {
+      logo: `${StaticBaseUrl}/img/social_infobip.png`,
+      url: "https://www.infobip.com",
     },
   },
   Email: {
