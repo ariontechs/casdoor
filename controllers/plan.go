@@ -16,6 +16,7 @@ package controllers
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/beego/beego/utils/pagination"
 	"github.com/casdoor/casdoor/object"
@@ -82,7 +83,10 @@ func (c *ApiController) GetPlan() {
 		c.ResponseError(err.Error())
 		return
 	}
-
+	if plan == nil {
+		c.ResponseError(fmt.Sprintf(c.T("plan:The plan: %s does not exist"), id))
+		return
+	}
 	if includeOption {
 		options, err := object.GetPermissionsByRole(plan.Role)
 		if err != nil {
@@ -110,14 +114,29 @@ func (c *ApiController) GetPlan() {
 // @router /update-plan [post]
 func (c *ApiController) UpdatePlan() {
 	id := c.Input().Get("id")
-
+	owner := util.GetOwnerFromId(id)
 	var plan object.Plan
 	err := json.Unmarshal(c.Ctx.Input.RequestBody, &plan)
 	if err != nil {
 		c.ResponseError(err.Error())
 		return
 	}
-
+	if plan.Product != "" {
+		productId := util.GetId(owner, plan.Product)
+		product, err := object.GetProduct(productId)
+		if err != nil {
+			c.ResponseError(err.Error())
+			return
+		}
+		if product != nil {
+			object.UpdateProductForPlan(&plan, product)
+			_, err = object.UpdateProduct(productId, product)
+			if err != nil {
+				c.ResponseError(err.Error())
+				return
+			}
+		}
+	}
 	c.Data["json"] = wrapActionResponse(object.UpdatePlan(id, &plan))
 	c.ServeJSON()
 }
@@ -136,7 +155,14 @@ func (c *ApiController) AddPlan() {
 		c.ResponseError(err.Error())
 		return
 	}
-
+	// Create a related product for plan
+	product := object.CreateProductForPlan(&plan)
+	_, err = object.AddProduct(product)
+	if err != nil {
+		c.ResponseError(err.Error())
+		return
+	}
+	plan.Product = product.Name
 	c.Data["json"] = wrapActionResponse(object.AddPlan(&plan))
 	c.ServeJSON()
 }
@@ -155,7 +181,13 @@ func (c *ApiController) DeletePlan() {
 		c.ResponseError(err.Error())
 		return
 	}
-
+	if plan.Product != "" {
+		_, err = object.DeleteProduct(&object.Product{Owner: plan.Owner, Name: plan.Product})
+		if err != nil {
+			c.ResponseError(err.Error())
+			return
+		}
+	}
 	c.Data["json"] = wrapActionResponse(object.DeletePlan(&plan))
 	c.ServeJSON()
 }
