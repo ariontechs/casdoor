@@ -10,6 +10,7 @@
     "@ctrl/tinycolor": "^3.5.0",
     "@emotion/react": "^11.10.5",
     "@metamask/eth-sig-util": "^6.0.0",
+    "@safe-global/safe-apps-provider": "^0.18.0",
     "@web3-onboard/coinbase": "^2.2.5",
     "@web3-onboard/core": "^2.20.5",
     "@web3-onboard/frontier": "^2.0.4",
@@ -53,7 +54,7 @@
   "scripts": {
     "check-node-version": "node -e \"if (parseInt(process.version.split('.')[0].slice(1)) < 18) { console.error('Node.js version must be >= 18'); process.exit(1); }\"",
     "start": "yarn check-node-version && cross-env PORT=7001 craco start",
-    "build": "craco --max_old_space_size=4096 build",
+    "build": "craco --max_old_space_size=8192 build",
     "test": "craco test",
     "eject": "craco eject",
     "crowdin:sync": "crowdin upload && crowdin download",
@@ -83,6 +84,9 @@
     "@babel/eslint-parser": "^7.18.9",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/preset-react": "^7.18.6",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "cross-env": "^7.0.3",
     "cypress": "^12.5.1",
     "eslint": "8.22.0",
@@ -92,10 +96,7 @@
     "lint-staged": "^13.0.3",
     "stylelint": "^14.11.0",
     "stylelint-config-recommended-less": "^1.0.4",
-    "stylelint-config-standard": "^28.0.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2"
+    "stylelint-config-standard": "^28.0.0"
   },
   "lint-staged": {
     "src/**/*.{css,less}": [
