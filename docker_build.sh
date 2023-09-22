@@ -1,2 +1,3 @@
-
-docker build -t casdoor:0.0.1 .
+TAG=0.0.3
+docker build -t natchung/casdoor:$TAG .
+docker push natchung/casdoor:$TAG

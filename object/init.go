@@ -190,6 +190,7 @@ func initBuiltInApplication() {
 			{Name: "Phone", Visible: true, Required: true, Prompted: false, Rule: "None"},
 			{Name: "Agreement", Visible: true, Required: true, Prompted: false, Rule: "None"},
 		},
+		GrantTypes: 		[]string{"authorization_code","token"},
 		Tags:          []string{},
 		RedirectUris:  []string{},
 		ExpireInHours: 168,
